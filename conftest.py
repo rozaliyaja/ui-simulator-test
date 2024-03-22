@@ -12,7 +12,6 @@ from pages.chekboxes_and_scroll_page import CheckboxesAndScrollPage
 from env_config import Config
 
 
-
 @pytest.fixture
 def get_chrome_options():
     options = ChromeOptions()
@@ -46,11 +45,13 @@ def check_and_validate_page(get_webdriver):
     yield CheckAndValidatePage(get_webdriver)
     get_webdriver.quit()
 
+
 @pytest.fixture()
 def input_and_click_page(get_webdriver):
     get_webdriver.get(Config.INPUT_AND_CLICK_URL)
     yield InputAndClickPage(get_webdriver)
     get_webdriver.quit()
+
 
 @pytest.fixture()
 def hover_and_select_page(get_webdriver):
@@ -58,17 +59,16 @@ def hover_and_select_page(get_webdriver):
     yield HoverAndSelectPage(get_webdriver)
     get_webdriver.quit()
 
+
 @pytest.fixture()
 def drag_and_drop_page(get_webdriver):
     get_webdriver.get(Config.DRAG_AND_DROP_URL)
     yield DragAndDropPage(get_webdriver)
     get_webdriver.quit()
 
+
 @pytest.fixture()
 def checkboxes_and_scroll_page(get_webdriver):
     get_webdriver.get(Config.CHECKBOXES_AND_SCROLL_URL)
     yield CheckboxesAndScrollPage(get_webdriver)
     get_webdriver.quit()
-
-
-

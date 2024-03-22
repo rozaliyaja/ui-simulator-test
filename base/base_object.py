@@ -40,14 +40,21 @@ class BaseObject:
             self.LOG.error(f'element {locator} is not visible')
         raise Exception(f'element {locator} is visible')
 
-    def _is_invisible(self, locator: object) -> WebElement:
+    #еще один метод, который про
+
+    def _is_invisible(self, locator: object) -> bool:
         """
         Проверяет, что элемент не видимый
         :param locator: элемент
         :return:
-        """
-        self.LOG.info(f'element {locator} is invisible')
-        return self.wait.until(ec.invisibility_of_element_located(locator))
+        """  # написать черенз try/except
+        try:
+            self.LOG.info(f'element {locator} is invisible')
+            self.wait.until(ec.invisibility_of_element_located(locator))
+            return True
+        except TimeoutException:
+            self.LOG.error(f'element{locator} is visible')
+            return False
 
     def _is_clickable(self, locator) -> WebElement:
         """

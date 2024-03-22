@@ -12,3 +12,8 @@ class Assertions:
     @staticmethod
     def assert_boolean(actual):
         assert actual is True, AssertionErrors.ASSERT_BOOLEAN
+        # try:
+        #
+        # except AssertionError:
+        #     raise AssertionError(AssertionErrors.ASSERT_BOOLEAN)
+# assert actual is True, AssertionErrors.ASSERT_BOOLEAN

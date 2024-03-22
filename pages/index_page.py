@@ -34,7 +34,7 @@ class IndexPage(BaseObject, Assertions):
     @allure.step("comparing the expected error message with the current error message ")
     def check_error_message(self, error_msg):
         self.assert_equal(actual=self.get_text(self.ERROR_MSG),
-                          expected=error_msg)
+                          expected= error_msg)
 
     def clicking_by_enter_instead_of_click(self):
         self.clicking_enter(self.LOGIN_BTN)

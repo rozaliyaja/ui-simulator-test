@@ -24,10 +24,11 @@ class InputAndClickPage(BaseObject, Assertions):
 
     @allure.step('check item field is invisible')
     def check_item_fields_is_invisible(self):
-        self.assert_boolean(actual=self._is_invisible(self.ITEM_FIELD))
+        self.assert_boolean(actual=self._is_invisible(self.DATA_FIELD))
          # selfassert_boolean(actual=self._is_invisible(self.ITEM_FIELD), ex))
         # ДЗ Как протестировать assert boolean
 
+    # actual = self._is_invisible(self.DATA_FIELD)
     @allure.step('click to delete button')
     def click_delete_button(self):
         self.click(self.DELETE_BTN)
