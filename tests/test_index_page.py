@@ -1,3 +1,4 @@
+import pytest
 from pytest import mark
 import allure
 
@@ -7,6 +8,7 @@ import allure
 @allure.title('Successful login')
 @allure.suite('Authorization suite')
 @allure.severity(allure.severity_level.BLOCKER)
+@pytest.mark.smoke
 def test_successful_login(index_page):
     index_page.enter_username(user_name='correct_username')
     index_page.enter_password(password='correct_password')
