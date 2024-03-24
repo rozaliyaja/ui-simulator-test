@@ -1,6 +1,7 @@
 import pytest
 from pytest import mark
 import allure
+from env_config import Creds
 
 
 @allure.description('Success login')
@@ -10,15 +11,15 @@ import allure
 @allure.severity(allure.severity_level.BLOCKER)
 @pytest.mark.smoke
 def test_successful_login(index_page):
-    index_page.enter_username(user_name='correct_username')
-    index_page.enter_password(password='correct_password')
+    index_page.enter_username(user_name=Creds.TEST_USERNAME)
+    index_page.enter_password(password=Creds.TEST_PASSWORD)
     index_page.clicking_by_enter_instead_of_click()
     index_page.check_url()
 
 
 case_1 = ['', '', 'Username and password fields cannot be empty']
-case_2 = ['correct_username', 'incorrect_password', 'Password or username is incorrect']
-case_3 = ['incorrect_username', 'correct_password', 'Password or username is incorrect']
+case_2 = [Creds.TEST_USERNAME, 'incorrect_password', 'Password or username is incorrect']
+case_3 = ['incorrect_username', Creds.TEST_PASSWORD, 'Password or username is incorrect']
 
 
 @mark.parametrize('user_name, password, error_msg', (case_1, case_2, case_3),

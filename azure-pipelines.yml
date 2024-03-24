@@ -6,9 +6,9 @@ parameters:
   values:
   - smoke
   - regression
-#создание кнопок в юзер интерфейсе
+#создание кнопок в юзер интерфейсе. По дефолту здесь запускается regression
 
-#расписание запуска тестов(крон синтаксис)
+#расписание запуска тестов(крон синтаксис). Чтобы отключить— закомментировать
 schedules:
 - cron: "0 0 * * *"
   displayName: Daily midnight build
@@ -21,6 +21,9 @@ trigger:
 
 pool:
    vmImage: 'windows-latest'
+
+variables:
+  - group: creds-ui-simulyator
 
 steps:
 - task: UsePythonVersion@0
@@ -48,6 +51,9 @@ steps:
         pytest
   displayName: 'pytest'
   continueOnError: true
+  env:
+    TEST_USERNAME: $(TEST_USERNAME)
+    TEST_PASSWORD: $(TEST_PASSWORD)
 
 - task: PublishTestResults@2
   inputs:
@@ -59,3 +65,9 @@ steps:
   inputs:
     reportDir: 'pyreport.html'
     tabName: 'PytestPyreport'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.SourcesDirectory)\pyreport.html'
+    artifactName: 'PytestPyreportArtifact'
+#Вынести сюда логи
