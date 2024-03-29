@@ -35,7 +35,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --alluredir=allure-results
+          pytest -m smoke
 
       - name: Generate Allure report
         run: |
