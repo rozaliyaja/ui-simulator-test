@@ -121,7 +121,7 @@ class BaseObject:
     def get_element_color(self, locator):
         return self._is_visible(locator).value_of_css_property('background-color')
 
-    def switch_window(self):
+    def switch_window(self, number):
         pass
 
 # ДЗ: Написать шаблонный модуль и класс для страниц, фистуры, пробежаться по сайту и напиисать модули для того, что уже умею

@@ -1,4 +1,3 @@
-import pytest
 from pytest import mark
 import allure
 from env_config import Creds
@@ -9,12 +8,23 @@ from env_config import Creds
 @allure.title('Successful login')
 @allure.suite('Authorization suite')
 @allure.severity(allure.severity_level.BLOCKER)
-@pytest.mark.smoke
+@mark.smoke
 def test_successful_login(index_page):
     index_page.enter_username(user_name=Creds.TEST_USERNAME)
     index_page.enter_password(password=Creds.TEST_PASSWORD)
     index_page.clicking_by_enter_instead_of_click()
     index_page.check_url()
+
+
+@mark.smoke
+@mark.parametrize('number', (1, 2, 3, 4, 5))
+def test_x(number):
+    assert 3 > number
+
+@mark.smoke
+@mark.skip
+def test_y():
+    pass
 
 
 case_1 = ['', '', 'Username and password fields cannot be empty']
