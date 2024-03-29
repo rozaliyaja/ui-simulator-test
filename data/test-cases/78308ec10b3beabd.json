@@ -1,0 +1,56 @@
+{
+  "uid" : "78308ec10b3beabd",
+  "name" : "test_y",
+  "fullName" : "tests.test_index_page#test_y",
+  "historyId" : "10376ad055b2091485deb95733fe9b18",
+  "time" : {
+    "start" : 1711722472819,
+    "stop" : 1711722472819,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "smoke"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_index_page"
+  }, {
+    "name" : "host",
+    "value" : "fv-az1435-963"
+  }, {
+    "name" : "thread",
+    "value" : "4238-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_index_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "smoke" ]
+  },
+  "source" : "78308ec10b3beabd.json",
+  "parameterValues" : [ ]
+}
